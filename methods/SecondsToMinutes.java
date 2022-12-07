@@ -6,7 +6,8 @@ public class SecondsToMinutes {
        System.out.println(getDurationString(-12113424));
        System.out.println(getDurationString(-1000,660));
        System.out.println(getDurationString(65,145));
-        
+       System.out.println(getDurationString(65,143));
+
     }
     public static String getDurationString(int seconds){
 
