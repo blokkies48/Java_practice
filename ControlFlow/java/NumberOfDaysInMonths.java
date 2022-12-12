@@ -1,4 +1,4 @@
-package ControlFlow;
+package ControlFlow.java;
 
 public class NumberOfDaysInMonths {
     public static void main(String[] args) {
