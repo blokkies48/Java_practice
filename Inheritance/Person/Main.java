@@ -2,7 +2,8 @@ package Inheritance.Person;
 
 public class Main {
     public static void main(String[] args) {
-        Person person = new Person();
+        Person person = new Person("Jan", "Plan", 21);
+        System.out.println(person.getFullName());
         person.setFirstName("");   // firstName is set to empty string
         person.setLastName("");    // lastName is set to empty string
         person.setAge(10);
