@@ -1,6 +1,6 @@
 public class Book {
-    /*
-    * Book object
+    /**
+    * Book object skeleton
     */
     // Variables
     private final int id;
