@@ -134,24 +134,36 @@ public class ProgramLoop {
                         continue;
                     }
                     if (userChoice1 <= 5){
-                        System.out.println("Select the id of the record you want to delete: ");
-                        int idSelected = scanner.nextInt();
-                        if (Objects.equals(userChoice1, 1)){
-                            ConnectToDatabase.deleteFromTable("projects", idSelected);
-                        }
-                        else if (Objects.equals(userChoice1, 2)){
-                            ConnectToDatabase.deleteFromTable("engineer",idSelected);
-                        }
-                        else if (Objects.equals(userChoice1, 3)){
-                            ConnectToDatabase.deleteFromTable("project_manager",idSelected);
-                        }
-                        else if (Objects.equals(userChoice1, 4)){
-                            ConnectToDatabase.deleteFromTable("architect",idSelected);
 
+                        while(true){
+                            System.out.println("Select the id of the record you want to delete: ");
+                            scanner = new Scanner(System.in);
+                            int idSelected = 0;
+                            try{
+                                idSelected = scanner.nextInt();
+                            } catch (Exception e) {
+                                System.out.println("Oops something happened...");
+                                continue;
+                            }
+                            if (Objects.equals(userChoice1, 1)){
+                                ConnectToDatabase.deleteFromTable("projects", idSelected);
+                            }
+                            else if (Objects.equals(userChoice1, 2)){
+                                ConnectToDatabase.deleteFromTable("engineer",idSelected);
+                            }
+                            else if (Objects.equals(userChoice1, 3)){
+                                ConnectToDatabase.deleteFromTable("project_manager",idSelected);
+                            }
+                            else if (Objects.equals(userChoice1, 4)){
+                                ConnectToDatabase.deleteFromTable("architect",idSelected);
+
+                            }
+                            else if (Objects.equals(userChoice1, 5)){
+                                ConnectToDatabase.deleteFromTable("customer",idSelected);
+                            }
+                            break;
                         }
-                        else if (Objects.equals(userChoice1, 5)){
-                            ConnectToDatabase.deleteFromTable("customer",idSelected);
-                        }
+
                     }
                     else if (userChoice1 == 6){
                         System.out.println("Going back...");

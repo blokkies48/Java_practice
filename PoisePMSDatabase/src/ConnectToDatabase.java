@@ -34,23 +34,34 @@ public class ConnectToDatabase {
      * */
     public static void addToTable(String tableName){
         try{
-            Scanner scanner = new Scanner(System.in);
-            // Enter id and name
-            System.out.println("Please enter the id of the new "+ tableName);
-            int id = scanner.nextInt();
-            System.out.println("Please enter the name of the new " + tableName);
-            scanner.nextLine(); // Consume previous line
-            String name = scanner.nextLine();
-            // Establish connection
-            Connection connection = connectDatabase();
-            // SQL commands
-            String SQLCommandChangeQty =
-                    "INSERT INTO "+ tableName + " VALUES ( " + id + ", '" + name + "');";
+            while (true){
 
-            // Handle null exception
-            if (connection != null) {
-                Statement statement = connection.createStatement();
-                statement.executeUpdate(SQLCommandChangeQty);
+                Scanner scanner = new Scanner(System.in);
+                // Enter id and name
+                System.out.println("Please enter the id of the new "+ tableName);
+
+                int id = 0;
+                try{
+                    id = scanner.nextInt();
+                } catch (Exception e) {
+                    System.out.println("Oops something happened...");
+                    continue;
+                }
+                System.out.println("Please enter the name of the new " + tableName);
+                scanner.nextLine(); // Consume previous line
+                String name = scanner.nextLine();
+                // Establish connection
+                Connection connection = connectDatabase();
+                // SQL commands
+                String SQLCommandChangeQty =
+                        "INSERT INTO "+ tableName + " VALUES ( " + id + ", '" + name + "');";
+
+                // Handle null exception
+                if (connection != null) {
+                    Statement statement = connection.createStatement();
+                    statement.executeUpdate(SQLCommandChangeQty);
+                    break;
+                }
             }
         } catch (SQLException e) {
             System.out.println(warningMessage);
