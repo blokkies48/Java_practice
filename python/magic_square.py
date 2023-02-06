@@ -5,6 +5,7 @@ def get_user_input() -> int:
     param: None
     return: int - a positive odd integer
     '''
+    # Validation checks done
     while True:
         try:
             user_input: int = int(input("Enter a positive odd int: "))
@@ -22,7 +23,7 @@ def generate_grid(grid_size: int) -> list[list[int]]:
     param: int - enter the side sizes of the grid
     return: list[list[int]] - a 2d list of the gird
     '''
-    return_grid: list[int] = []
+    return_grid: list[list[int]] = []
     for _ in range(grid_size):
         return_grid.append([0 for _ in range(grid_size)])
     return return_grid
@@ -81,6 +82,7 @@ def magic_square(grid_size: int) -> list[list[int]]:
 def print_grid(finished_grid: list[list[int]]) -> None:
     '''
     bonus function to print grid nicely.
+
     param: list[list[int]] - the filled in grid
     return: None
     '''
@@ -118,14 +120,14 @@ def verification_check(grid: list[list[int]]) -> bool:
         if sum(values) != control_value:
             return False
 
-    # Testing cross left to right down.
+    # Testing cross left to right downwards.
     cross_values: list[int] = []
     for i in range(len(grid)):
         cross_values.append(grid[i][i])
     if sum(cross_values) != control_value:
         return False
 
-    # Testing cross right to left down.
+    # Testing cross right to left downwards.
     cross_values: list[int] = []
     index_top_value = len(grid) - 1
     for i in range(len(grid)):
@@ -147,9 +149,9 @@ def main() -> None:
 
     # Print validation
     if verification_check(the_finished_product):
-        print("\nThis is a valid magic square...")
+        print("\nCorrect!!\nThis is a valid magic square...")
     else:
-        print("\nThis is an invalid magic square")
+        print("\nIncorrect!!\nThis is an invalid magic square")
 
 if __name__ == "__main__":
     main()
