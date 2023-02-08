@@ -1,3 +1,5 @@
+'''Author Francis Jonathan Lloyd 9511085126081'''
+
 def get_user_input() -> int:
     '''
     function used to get user input
@@ -107,9 +109,12 @@ def verification_check(grid: list[list[int]]) -> bool:
     param: list[list[int]] - the magic square
     return: bool - True if valid else False 
     '''
+    print("\nProof\n----------")
     control_value: int = sum(grid[0])
     # Test horizontal (rows)
     for index, row in enumerate(grid):
+        # Test proof
+        print (f"Row {index + 1}: {row} = {sum(row)}")
         if sum(row) != control_value:
             return False
 
@@ -117,6 +122,8 @@ def verification_check(grid: list[list[int]]) -> bool:
         values: list[int] = []
         for row_index in range(len(grid)):
             values.append(grid[row_index][index])
+            # Test proof
+        print (f"Column {index + 1}: {values} = {sum(values)}")
         if sum(values) != control_value:
             return False
 
@@ -124,6 +131,8 @@ def verification_check(grid: list[list[int]]) -> bool:
     cross_values: list[int] = []
     for i in range(len(grid)):
         cross_values.append(grid[i][i])
+    # Test proof
+    print (f"Cross left - right: {cross_values} = {sum(cross_values)}")
     if sum(cross_values) != control_value:
         return False
 
@@ -132,6 +141,8 @@ def verification_check(grid: list[list[int]]) -> bool:
     index_top_value = len(grid) - 1
     for i in range(len(grid)):
         cross_values.append(grid[i][index_top_value - i])
+    # Test proof
+    print (f"Cross right - left: {cross_values} = {sum(cross_values)}")
     if sum(cross_values) != control_value:
         return False
 
